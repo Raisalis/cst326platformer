@@ -27,31 +27,31 @@ public class UIManager : MonoBehaviour
     {
         // Updates the timer text based on time passed since the game started.
         // NOTE: May need to change to account for a start screen. Or changing levels.
-        timerText.text = String.Format("{0}", (int)(time - Time.fixedTime));
+        timerText.text = String.Format("{0:000}", (int)(time - Time.fixedTime));
     }
 
     // Function that increases the score when called.
-    void addScore(int change)
+    public void addScore(int change)
     {
         score += change;
         if(score < 0) {
             score = 0;
         }
-        scoreText.text = String.Format("{000000}", score);
+        scoreText.text = String.Format("{0:000000}", score);
     }
 
     // Function to add/subtract coins from the UI.
-    void addCoins(int change)
+    public void addCoins(int change)
     {
         coins += change;
         if(coins < 0) {
             coins = 0;
         }
-        coinText.text = String.Format("X{00}", coins);
+        coinText.text = String.Format("X{0:00}", coins);
     }
 
     // Function to change the World Text on level change.
-    void updateWorld(int world, int level)
+    public void updateWorld(int world, int level)
     {
         worldText.text = String.Format("{0}-{0}", world, level);
     }
