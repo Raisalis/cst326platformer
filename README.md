@@ -13,6 +13,16 @@ A platform game that is definitely not Mario.
   - Destroys bricks if clicked.
   - Adds a coin to the coin counter if a question block is clicked.
 
+## Part 2:
+- Custom blocks and custom stage put through level parser.
+  - Lava and Goal blocks added.
+- UI changes: Coins and blocks being broken add to the score.
+  - Time set to start at 100.
+- Repurpose Mouse RayCasting for the character.
+- Character now dies if they touch lava.
+- Character model and animations added.
+  - Character can walk, sprint, and jump.
+
 #### Additional Notes:
 
 - Font used: https://assetstore.unity.com/packages/2d/fonts/free-pixel-font-thaleah-140059
