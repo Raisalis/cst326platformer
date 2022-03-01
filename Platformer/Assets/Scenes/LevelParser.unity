@@ -244,7 +244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fabac143d4de4b44da8fff0a3365606f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filename: test
+  filename: myTest
   rockPrefab: {fileID: 5272598852376392336, guid: 974d0bb24365a954691de41bab431dd2, type: 3}
   brickPrefab: {fileID: 1699011945215105172, guid: 6601bd2612c78fb48a7505d82cd42f8d, type: 3}
   questionPrefab: {fileID: 2871176337505485789, guid: a0466afa51abbe24ca9f6ba015ef1b70, type: 3}
@@ -685,7 +685,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 7.4
   m_Depth: -1
   m_CullingMask:
@@ -783,8 +783,11 @@ MonoBehaviour:
   jumpSustainForce: 7.5
   feetOnGround: 0
   maxHorizontalSpeed: 6
+  sprintSpeed: 10
   jumping: 0
   forward: 1
+  sprinting: 0
+  sprintForce: 20
 --- !u!136 &1070321968
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1127,8 +1130,11 @@ MonoBehaviour:
   jumpSustainForce: 7.5
   feetOnGround: 0
   maxHorizontalSpeed: 6
+  sprintSpeed: 10
   jumping: 0
   forward: 1
+  sprinting: 0
+  sprintForce: 20
 --- !u!54 &1206200366
 Rigidbody:
   m_ObjectHideFlags: 0

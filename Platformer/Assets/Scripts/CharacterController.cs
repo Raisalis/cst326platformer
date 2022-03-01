@@ -9,10 +9,13 @@ public class CharacterController : MonoBehaviour
     public float jumpSustainForce = 7.5f;
     public bool feetOnGround = false;
     public float maxHorizontalSpeed = 6f;
+    public float sprintSpeed = 10f;
     private Animator animComp;
     private int jumpCounter = 0;
     public bool jumping = false;
     public bool forward = true;
+    public bool sprinting = false;
+    public float sprintForce = 20f;
 
 
     // Start is called before the first frame update
@@ -68,8 +71,26 @@ public class CharacterController : MonoBehaviour
             }
         }
 
+        //Sprint
+        if(Input.GetKeyDown(KeyCode.LeftShift) && feetOnGround)
+        {
+            body.AddForce(Vector3.right * axis * sprintForce, ForceMode.Impulse);
+            sprinting = true;
+        }
+        else if(Input.GetKeyUp(KeyCode.LeftShift) || !feetOnGround)
+        {
+            sprinting = false;
+        }
+
         // Check the velocity along x axis and clamp it if character is moving faster than max speed.
-        float xVelocity = Mathf.Clamp(body.velocity.x, -maxHorizontalSpeed, maxHorizontalSpeed);
+        float xVelocity = 0f;
+        if(sprinting)
+        {
+            xVelocity = Mathf.Clamp(body.velocity.x, -sprintSpeed, sprintSpeed);
+        } else {
+            xVelocity = Mathf.Clamp(body.velocity.x, -maxHorizontalSpeed, maxHorizontalSpeed);
+        }
+        
 
         // If player isn't holding down a run button, start slowing down the character.
         if(Mathf.Abs(axis) < 0.1f)
