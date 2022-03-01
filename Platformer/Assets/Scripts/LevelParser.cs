@@ -9,6 +9,8 @@ public class LevelParser : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject questionPrefab;
     public GameObject stonePrefab;
+    public GameObject lavaPrefab;
+    public GameObject goalPrefab;
     public Transform levelRoot;
 
     // --------------------------------------------------------------------------
@@ -63,6 +65,8 @@ public class LevelParser : MonoBehaviour
                     case '?': newObject = Instantiate(questionPrefab); break;
                     case 'x': newObject = Instantiate(rockPrefab); break;
                     case 's': newObject = Instantiate(stonePrefab); break;
+                    case 'l': newObject = Instantiate(lavaPrefab); break;
+                    case 'g': newObject = Instantiate(goalPrefab); break;
                     default: break;
                 }
 

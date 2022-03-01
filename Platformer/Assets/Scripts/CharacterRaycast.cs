@@ -37,6 +37,15 @@ public class CharacterRaycast : MonoBehaviour
                     }
                 }
             }
+
+            if(collision.gameObject.tag == "lava") {
+                Destroy(gameObject);
+                Debug.Log("Player died in lava! Game over.");
+            }
+
+            if(collision.gameObject.tag == "goal") {
+                Debug.Log("Player cleared the level! Congratulations!");
+            }
         }
     }
 
