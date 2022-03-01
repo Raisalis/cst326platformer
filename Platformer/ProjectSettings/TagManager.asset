@@ -8,6 +8,8 @@ TagManager:
   - question
   - rock
   - stone
+  - lava
+  - goal
   layers:
   - Default
   - TransparentFX

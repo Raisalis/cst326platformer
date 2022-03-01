@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     {
         coins = 0;
         score = 0;
-        time = 300;
+        time = 100;
     }
 
     // Update is called once per frame
@@ -28,6 +28,11 @@ public class UIManager : MonoBehaviour
         // Updates the timer text based on time passed since the game started.
         // NOTE: May need to change to account for a start screen. Or changing levels.
         timerText.text = String.Format("{0:000}", (int)(time - Time.fixedTime));
+
+        if(time <= 0)
+        {
+            Debug.Log("Player failed to clear the level.");
+        }
     }
 
     // Function that increases the score when called.
@@ -48,6 +53,7 @@ public class UIManager : MonoBehaviour
             coins = 0;
         }
         coinText.text = String.Format("X{0:00}", coins);
+        addScore(100);
     }
 
     // Function to change the World Text on level change.
