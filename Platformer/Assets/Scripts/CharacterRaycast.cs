@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseRaycast : MonoBehaviour
+public class CharacterRaycast : MonoBehaviour
 {
     public UIManager manager;
 
@@ -15,10 +15,14 @@ public class MouseRaycast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.tag != "rock")
         {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = new Ray(transform.position, Vector3.up);
             if(Physics.Raycast(ray, out hit))
             {
                 if(hit.collider != null)
@@ -29,6 +33,7 @@ public class MouseRaycast : MonoBehaviour
                     }
                     else if(block.tag == "brick") {
                         Destroy(block);
+                        manager.addScore(100);
                     }
                 }
             }
